@@ -11,4 +11,9 @@
     <Compile Remove="Menus\MenuAvaliarAlbum.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+    <PackageReference Include="System.Security.Permissions" Version="9.0.4" />
+  </ItemGroup>
+
 </Project>

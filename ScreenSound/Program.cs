@@ -1,5 +1,26 @@
-﻿using ScreenSound.Menus;
+﻿using ScreenSound.Banco;
+using ScreenSound.Menus;
 using ScreenSound.Modelos;
+using Microsoft.Data.SqlClient;
+
+AppContext.SetSwitch("Switch.Microsoft.Data.SqlClient.UseManagedNetworkingOnWindows", true);
+AppContext.SetSwitch("Switch.Microsoft.Data.SqlClient.EnableEventSource", true);
+
+try
+{    
+    using var connection = new Connection().ObterConexao();
+    connection.Open();
+    Console.WriteLine(connection.State);
+}
+catch(Exception ex)
+{
+    Console.WriteLine($"Ocorreu um erro: {ex.Message}");
+    if (ex.InnerException != null)
+    {
+        Console.WriteLine($"Detalhes: {ex.InnerException.Message}");
+    }
+}
+return;
 
 Artista ira = new Artista("Ira!", "Banda Ira!");
 Artista beatles = new("The Beatles", "Banda The Beatles");
