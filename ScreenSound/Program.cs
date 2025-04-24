@@ -6,9 +6,11 @@ using Microsoft.Data.SqlClient;
 AppContext.SetSwitch("Switch.Microsoft.Data.SqlClient.UseManagedNetworkingOnWindows", true);
 
 try
-{    
-    var connection = new Connection();
-    var listaArtistas = connection.Listar();
+{
+    var artistaDAL = new ArtistaDAL();
+    artistaDAL.Adicionar(new Artista("Foo Fighters", "é uma banda americana de rock, formada em 1994 em Seattle, Washington, por Dave Grohl após o fim do Nirvana."));    
+
+    var listaArtistas = artistaDAL.Listar();
 
     foreach (var artista in listaArtistas)
     {
