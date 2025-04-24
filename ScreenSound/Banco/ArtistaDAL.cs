@@ -60,5 +60,19 @@ internal class ArtistaDAL
 
         int retorno = command.ExecuteNonQuery();
         Console.WriteLine($"Linhas afetadas: {retorno}");
-    }    
+    }
+
+    public void Deletar(int id)
+    {
+        using var connection = new Connection().ObterConexao();
+        connection.Open();
+
+        string sql = "DELETE FROM Artistas WHERE Id = @id";
+        SqlCommand command = new SqlCommand(sql, connection);
+        
+        command.Parameters.AddWithValue("@id", id);
+
+        int retorno = command.ExecuteNonQuery();
+        Console.WriteLine($"Linhas afetadas: {retorno}");
+    }
 }

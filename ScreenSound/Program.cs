@@ -10,10 +10,13 @@ try
     var artistaDAL = new ArtistaDAL();
     //artistaDAL.Adicionar(new Artista("Foo Fighters", "é uma banda americana de rock, formada em 1994 em Seattle, Washington, por Dave Grohl após o fim do Nirvana."));
 
-    artistaDAL.Atualizar(new Artista("Foo Fighters", "Foo Fighters é uma banda americana de rock, formada em 1994 em Seattle, Washington, por Dave Grohl após o fim do Nirvana.") { Id = 1002 });   
+    //artistaDAL.Atualizar(new Artista("Foo Fighters", "Foo Fighters é uma banda americana de rock, formada em 1994 em Seattle, Washington, por Dave Grohl após o fim do Nirvana.") { Id = 1002 });
+
+    artistaDAL.Deletar(1002);
 
 
     var listaArtistas = artistaDAL.Listar();
+
     
 
     foreach (var artista in listaArtistas)
