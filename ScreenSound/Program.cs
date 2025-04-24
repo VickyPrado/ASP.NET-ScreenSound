@@ -4,13 +4,16 @@ using ScreenSound.Modelos;
 using Microsoft.Data.SqlClient;
 
 AppContext.SetSwitch("Switch.Microsoft.Data.SqlClient.UseManagedNetworkingOnWindows", true);
-AppContext.SetSwitch("Switch.Microsoft.Data.SqlClient.EnableEventSource", true);
 
 try
 {    
-    using var connection = new Connection().ObterConexao();
-    connection.Open();
-    Console.WriteLine(connection.State);
+    var connection = new Connection();
+    var listaArtistas = connection.Listar();
+
+    foreach (var artista in listaArtistas)
+    {
+        Console.WriteLine(artista);
+    }
 }
 catch(Exception ex)
 {
