@@ -9,9 +9,9 @@ internal class ArtistaDAL
 {
     private readonly ScreenSoundContext context;
 
-    public ArtistaDAL()
+    public ArtistaDAL(ScreenSoundContext context)
     {
-        context = new ScreenSoundContext();
+       this.context = context;
     }
     public IEnumerable<Artista> Listar()
     {  
