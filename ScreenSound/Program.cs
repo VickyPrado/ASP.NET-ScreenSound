@@ -9,7 +9,7 @@ try
 {
     var context = new ScreenSoundContext();
     var artistaDAL = new ArtistaDAL(context);
-    
+
     //var novoArtista = new Artista("Evanescence", "Evanescence é uma banda americana de metal alternativo formada em 1995 na cidade de Little Rock, Arkansas pela vocalista e pianista Amy Lee e o guitarrista Ben Moody. Atualmente o grupo possui cinco integrantes, sendo que Moody não está mais envolvido.");
 
     //var novoArtista = new Artista("Evanescence", "Evanescence é uma banda americana de metal alternativo formada em 1995 na cidade de Little Rock, Arkansas pela vocalista e pianista Amy Lee e o guitarrista Ben Moody.") { Id = 3002 };
@@ -18,12 +18,15 @@ try
     //artistaDAL.Atualizar(novoArtista);
     //artistaDAL.Deletar(novoArtista);
 
-    var listaArtistas = artistaDAL.Listar();    
+    var artistaRecuperado = artistaDAL.RecuperarPeloNome("Slipknot");
+    Console.WriteLine(artistaRecuperado);
 
-    foreach (var artista in listaArtistas)
-    {
-        Console.WriteLine(artista);
-    }
+    //var listaArtistas = artistaDAL.Listar();    
+
+    //foreach (var artista in listaArtistas)
+    //{
+    //    Console.WriteLine(artista);
+    //}
 }
 catch(Exception ex)
 {
