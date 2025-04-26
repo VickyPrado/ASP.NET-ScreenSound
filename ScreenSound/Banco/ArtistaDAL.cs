@@ -7,12 +7,15 @@ namespace ScreenSound.Banco;
 
 internal class ArtistaDAL
 {
+    private readonly ScreenSoundContext context;
+    public ArtistaDAL()
+    {
+        context = new ScreenSoundContext();
+    }
     public IEnumerable<Artista> Listar()
-    {        
-        using var context = new ScreenSoundContext();
+    {  
         return context.Artistas.ToList();
     }
-
 
     /*
   public void Adicionar(Artista artista)
