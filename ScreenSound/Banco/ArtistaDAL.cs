@@ -31,19 +31,10 @@ internal class ArtistaDAL
         context.SaveChanges();
     }
 
-    /*
-    public void Deletar(int id)
+    
+    public void Deletar(Artista artista)
     {
-        using var connection = new ScreenSoundContext().ObterConexao();
-        connection.Open();
-
-        string sql = "DELETE FROM Artistas WHERE Id = @id";
-        SqlCommand command = new SqlCommand(sql, connection);
-
-        command.Parameters.AddWithValue("@id", id);
-
-        int retorno = command.ExecuteNonQuery();
-        Console.WriteLine($"Linhas afetadas: {retorno}");
-    }
-    */
+        context.Artistas.Remove(artista);
+        context.SaveChanges();
+    }    
 }
