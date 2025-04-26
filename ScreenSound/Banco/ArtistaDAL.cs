@@ -24,25 +24,14 @@ internal class ArtistaDAL
         context.SaveChanges();
     }
 
-    /*
+    
     public void Atualizar(Artista artista)
     {
-        using var connection = new ScreenSoundContext().ObterConexao();
-        connection.Open();
-
-        string sql = "UPDATE Artistas SET Nome = @nome, FotoPerfil = @perfilPadrao, Bio = @bio WHERE Id = @id";
-        SqlCommand command = new SqlCommand(sql, connection);
-
-        command.Parameters.AddWithValue("@nome", artista.Nome);
-        command.Parameters.AddWithValue("@perfilPadrao", artista.FotoPerfil);
-        command.Parameters.AddWithValue("@bio", artista.Bio);
-        command.Parameters.AddWithValue("@id", artista.Id);
-
-        int retorno = command.ExecuteNonQuery();
-        Console.WriteLine($"Linhas afetadas: {retorno}");
+        context.Artistas.Update(artista);
+        context.SaveChanges();
     }
 
-
+    /*
     public void Deletar(int id)
     {
         using var connection = new ScreenSoundContext().ObterConexao();
