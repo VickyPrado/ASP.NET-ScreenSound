@@ -23,14 +23,12 @@ internal class ArtistaDAL
         context.Artistas.Add(artista);
         context.SaveChanges();
     }
-
     
     public void Atualizar(Artista artista)
     {
         context.Artistas.Update(artista);
         context.SaveChanges();
     }
-
     
     public void Deletar(Artista artista)
     {

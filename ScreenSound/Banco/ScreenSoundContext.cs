@@ -11,6 +11,7 @@ namespace ScreenSound.Banco;
 internal class ScreenSoundContext: DbContext
 {
     public DbSet<Artista> Artistas { get; set; }
+    public DbSet<Musica> Musicas { get; set; }
 
     private string connectionString = @"Server=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Vicky\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\MSSQLLocalDB\ScreenSound.mdf;Integrated Security=True;Connect Timeout=30;";
 
