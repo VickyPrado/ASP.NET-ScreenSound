@@ -5,45 +5,8 @@ using Microsoft.Data.SqlClient;
 
 AppContext.SetSwitch("Switch.Microsoft.Data.SqlClient.UseManagedNetworkingOnWindows", true);
 
-try
-{
-    var context = new ScreenSoundContext();
-    var artistaDAL = new ArtistaDAL(context);
-
-    //var novoArtista = new Artista("Evanescence", "Evanescence é uma banda americana de metal alternativo formada em 1995 na cidade de Little Rock, Arkansas pela vocalista e pianista Amy Lee e o guitarrista Ben Moody. Atualmente o grupo possui cinco integrantes, sendo que Moody não está mais envolvido.");
-
-    //var novoArtista = new Artista("Evanescence", "Evanescence é uma banda americana de metal alternativo formada em 1995 na cidade de Little Rock, Arkansas pela vocalista e pianista Amy Lee e o guitarrista Ben Moody.") { Id = 3002 };
-
-    //artistaDAL.Adicionar(novoArtista);
-    //artistaDAL.Atualizar(novoArtista);
-    //artistaDAL.Deletar(novoArtista);
-
-    var artistaRecuperado = artistaDAL.RecuperarPeloNome("Slipknot");
-    Console.WriteLine(artistaRecuperado);
-
-    //var listaArtistas = artistaDAL.Listar();    
-
-    //foreach (var artista in listaArtistas)
-    //{
-    //    Console.WriteLine(artista);
-    //}
-}
-catch(Exception ex)
-{
-    Console.WriteLine($"Ocorreu um erro: {ex.Message}");
-    if (ex.InnerException != null)
-    {
-        Console.WriteLine($"Detalhes: {ex.InnerException.Message}");
-    }
-}
-return;
-
-Artista ira = new Artista("Ira!", "Banda Ira!");
-Artista beatles = new("The Beatles", "Banda The Beatles");
-
-Dictionary<string, Artista> artistasRegistrados = new();
-artistasRegistrados.Add(ira.Nome, ira);
-artistasRegistrados.Add(beatles.Nome, beatles);
+var context = new ScreenSoundContext();
+var artistaDAL = new ArtistaDAL(context);
 
 Dictionary<int, Menu> opcoes = new();
 opcoes.Add(1, new MenuRegistrarArtista());
@@ -82,7 +45,7 @@ void ExibirOpcoesDoMenu()
     if (opcoes.ContainsKey(opcaoEscolhidaNumerica))
     {
         Menu menuASerExibido = opcoes[opcaoEscolhidaNumerica];
-        menuASerExibido.Executar(artistasRegistrados);
+        menuASerExibido.Executar(artistaDAL);
         if (opcaoEscolhidaNumerica > 0) ExibirOpcoesDoMenu();
     } 
     else
