@@ -7,6 +7,8 @@
     <Nullable>enable</Nullable>
 	<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
 	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	<UseManagedNetworking>true</UseManagedNetworking>
+	<EnableLongPaths>true</EnableLongPaths>
   </PropertyGroup>
 
   <ItemGroup>
